@@ -15,3 +15,7 @@ N
 contracts/risk-assessment.clar,9/b/9bd619b8006324502bc6596111bafe5f91076bc2
 M
 tests/risk-assessment.test.ts,e/9/e9e6a96a70c2cbf19d963c4403d69d9c6dc859d9
+E
+contracts/oracle.clar,3/c/3cf19cce7726142cf924f7cdbd4ae79592f1f8fc
+D
+tests/oracle.test.ts,a/0/a01d33af3d01e43d4c5e519c62c3403f188dab8e
