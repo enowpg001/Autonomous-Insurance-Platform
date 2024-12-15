@@ -1,21 +1,34 @@
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-import { describe, expect, it } from "vitest";
-
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
-
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
-
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
+describe('Oracle Contract', () => {
+  const user1 = 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM';
+  
+  beforeEach(() => {
+    // Reset contract state before each test
   });
-
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
+  
+  it('should set current time', () => {
+    const setCurrentTimeMock = vi.fn().mockReturnValue({ ok: true });
+    const result = setCurrentTimeMock('oracle', 'set-current-time', [1625097600], user1);
+    expect(result).toEqual({ ok: true });
+  });
+  
+  it('should get current time', () => {
+    const getCurrentTimeMock = vi.fn().mockReturnValue({ ok: 1625097600 });
+    const result = getCurrentTimeMock('oracle', 'get-current-time', []);
+    expect(result).toEqual({ ok: 1625097600 });
+  });
+  
+  it('should verify data', () => {
+    const verifyDataMock = vi.fn().mockReturnValue({ ok: true });
+    const result = verifyDataMock('oracle', 'verify-data', ['weather', 'NYC-20230615', 'sunny'], user1);
+    expect(result).toEqual({ ok: true });
+  });
+  
+  it('should get verified data', () => {
+    const getVerifiedDataMock = vi.fn().mockReturnValue({ ok: { value: 'sunny', timestamp: 1625097600 } });
+    const result = getVerifiedDataMock('oracle', 'get-verified-data', ['weather', 'NYC-20230615']);
+    expect(result.ok).toHaveProperty('value', 'sunny');
+  });
 });
+

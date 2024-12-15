@@ -60,6 +60,11 @@ plan:
             path: contracts/insurance-policy.clar
             clarity-version: 2
         - emulated-contract-publish:
+            contract-name: oracle
+            emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            path: contracts/oracle.clar
+            clarity-version: 2
+        - emulated-contract-publish:
             contract-name: risk-assessment
             emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
             path: contracts/risk-assessment.clar
