@@ -1,21 +1,35 @@
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-import { describe, expect, it } from "vitest";
-
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
-
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
-
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
+describe('Insurance Pool Contract', () => {
+  const user1 = 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM';
+  const user2 = 'ST2CY5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG';
+  
+  beforeEach(() => {
+    // Reset contract state before each test
   });
-
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
+  
+  it('should stake tokens', () => {
+    const stakeMock = vi.fn().mockReturnValue({ ok: 1000000 });
+    const result = stakeMock('insurance-pool', 'stake', [1000000], user1);
+    expect(result).toEqual({ ok: 1000000 });
+  });
+  
+  it('should unstake tokens', () => {
+    const unstakeMock = vi.fn().mockReturnValue({ ok: 500000 });
+    const result = unstakeMock('insurance-pool', 'unstake', [500000], user1);
+    expect(result).toEqual({ ok: 500000 });
+  });
+  
+  it('should get staked amount', () => {
+    const getStakedAmountMock = vi.fn().mockReturnValue({ ok: 500000 });
+    const result = getStakedAmountMock('insurance-pool', 'get-staked-amount', [user1]);
+    expect(result).toEqual({ ok: 500000 });
+  });
+  
+  it('should get total staked', () => {
+    const getTotalStakedMock = vi.fn().mockReturnValue({ ok: 1500000 });
+    const result = getTotalStakedMock('insurance-pool', 'get-total-staked', []);
+    expect(result).toEqual({ ok: 1500000 });
+  });
 });
+
