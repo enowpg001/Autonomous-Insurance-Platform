@@ -7,3 +7,5 @@ O
 contracts/insurance-policy.clar,a/c/acb1483e079bf2e7fedf98774ef5a75a74f977cd
 N
 tests/insurance-policy.test.ts,0/d/0d1cd4fdc475e0e2a30ce6d0c8c87039dc276033
+O
+contracts/claim-processing.clar,e/4/e47e6368933892ded22ab6c552597ee4dcbccf44
