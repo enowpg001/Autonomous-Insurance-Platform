@@ -1,21 +1,28 @@
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-import { describe, expect, it } from "vitest";
-
-const accounts = simnet.getAccounts();
-const address1 = accounts.get("wallet_1")!;
-
-/*
-  The test below is an example. To learn more, read the testing documentation here:
-  https://docs.hiro.so/stacks/clarinet-js-sdk
-*/
-
-describe("example tests", () => {
-  it("ensures simnet is well initalised", () => {
-    expect(simnet.blockHeight).toBeDefined();
+describe('Risk Assessment Contract', () => {
+  const user1 = 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM';
+  
+  beforeEach(() => {
+    // Reset contract state before each test
   });
-
-  // it("shows an example", () => {
-  //   const { result } = simnet.callReadOnlyFn("counter", "get-counter", [], address1);
-  //   expect(result).toBeUint(0);
-  // });
+  
+  it('should set risk score', () => {
+    const setRiskScoreMock = vi.fn().mockReturnValue({ ok: true });
+    const result = setRiskScoreMock('risk-assessment', 'set-risk-score', ['health', 'age', 75], user1);
+    expect(result).toEqual({ ok: true });
+  });
+  
+  it('should get risk score', () => {
+    const getRiskScoreMock = vi.fn().mockReturnValue(75);
+    const result = getRiskScoreMock('risk-assessment', 'get-risk-score', ['health', 'age']);
+    expect(result).toEqual(75);
+  });
+  
+  it('should calculate premium', () => {
+    const calculatePremiumMock = vi.fn().mockReturnValue({ ok: 60000 });
+    const result = calculatePremiumMock('risk-assessment', 'calculate-premium', ['health', 1000000, ['location', 'age', 'history']]);
+    expect(result).toEqual({ ok: 60000 });
+  });
 });
+

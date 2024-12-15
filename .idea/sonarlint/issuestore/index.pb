@@ -13,3 +13,5 @@ N
 tests/claim-processing.test.ts,5/c/5c85b8e33f64021ffe130a790a5a3bd20f11b40d
 N
 contracts/risk-assessment.clar,9/b/9bd619b8006324502bc6596111bafe5f91076bc2
+M
+tests/risk-assessment.test.ts,e/9/e9e6a96a70c2cbf19d963c4403d69d9c6dc859d9
