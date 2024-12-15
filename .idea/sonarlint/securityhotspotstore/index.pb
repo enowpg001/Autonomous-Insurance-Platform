@@ -19,3 +19,7 @@ E
 contracts/oracle.clar,3/c/3cf19cce7726142cf924f7cdbd4ae79592f1f8fc
 D
 tests/oracle.test.ts,a/0/a01d33af3d01e43d4c5e519c62c3403f188dab8e
+M
+contracts/insurance-pool.clar,8/e/8e69fb2d78d3f143e5130c22c574562fe8d5ac0c
+L
+tests/insurance-pool.test.ts,6/c/6c2d18ec175691240aadc331d1188e5bd510317d

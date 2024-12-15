@@ -15,6 +15,11 @@ path = 'contracts/insurance-policy.clar'
 clarity_version = 2
 epoch = 2.5
 
+[contracts.insurance-pool]
+path = 'contracts/insurance-pool.clar'
+clarity_version = 2
+epoch = 2.5
+
 [contracts.oracle]
 path = 'contracts/oracle.clar'
 clarity_version = 2

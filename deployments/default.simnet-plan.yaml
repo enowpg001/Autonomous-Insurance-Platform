@@ -60,6 +60,11 @@ plan:
             path: contracts/insurance-policy.clar
             clarity-version: 2
         - emulated-contract-publish:
+            contract-name: insurance-pool
+            emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
+            path: contracts/insurance-pool.clar
+            clarity-version: 2
+        - emulated-contract-publish:
             contract-name: oracle
             emulated-sender: ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM
             path: contracts/oracle.clar
